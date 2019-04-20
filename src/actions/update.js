@@ -1,3 +1,5 @@
+import { getState, setState } from "../store";
+
 /* FIXME:
 *
 * export a function that updates a single element from the store.
@@ -8,6 +10,10 @@
 *
 */
 
-const update = () => {};
+const update = (url, index) => {
+    let state = getState();
+    state[index] = url;
+    setState(state);
+};
 
 export default update;
