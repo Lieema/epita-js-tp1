@@ -15,8 +15,35 @@ const clearInputContents = () => (pictureInputElement.value = "");
 const addPictureHandler = () => {
   const url = getInputContents();
 
-  // FIXME: use your actions functions to add a new picture
-  // FIXME: bonus, trim eventual whitespaces and validate content
+  // use your actions functions to add a new picture
+  // bonus, trim eventual whitespaces and validate content
+  // checks validity of each url and trim withespaces
+
+  // we don't know if single element or array, ensure it's array
+  let urls = [].concat(url);
+  console.log(urls);
+
+  urls.forEach((el, index, array) => array[index] = el.trim());
+
+  console.log(urls);
+
+  // Regex for urls (from: http://forums.devshed.com/javascript-development-115/regexp-match-url-pattern-493764.html)
+  const pattern = new RegExp('^(https?:\\/\\/)?'+ // protocol
+    '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+ // domain name
+    '((\\d{1,3}\\.){3}\\d{1,3}))'+ // OR ip (v4) address
+    '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ // port and path
+    '(\\?[;&a-z\\d%_.~+=-]*)?'+ // query string
+    '(\\#[-a-z\\d_]*)?$','i'); // fragment locator  
+
+  if (urls.every(el => {    
+    return !!pattern.test(el)
+  }))
+  {
+    add(urls);  
+  }
+
+  // refresh all grid with new elements
+  refreshGrid()
 
   clearInputContents();
 };
