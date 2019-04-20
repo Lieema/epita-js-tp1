@@ -1,4 +1,6 @@
-/* FIXME:
+import { getState } from "../store";
+
+/*
 *
 * export a function that gets a single element from the store.
 *
@@ -7,6 +9,6 @@
 *
 */
 
-const get = () => {};
+const get = i => getState()[i];
 
 export default get;
