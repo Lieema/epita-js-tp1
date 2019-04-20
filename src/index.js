@@ -1,5 +1,7 @@
+/* eslint-disable */
 import list from "./actions/list";
 import add from "./actions/add";
+
 
 const picturesGridElement = document.getElementById("pictures-grid");
 const pictureInputElement = document.getElementById("picture-url-input");
