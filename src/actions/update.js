@@ -1,6 +1,6 @@
 import { getState, setState } from "../store";
 
-/* FIXME:
+/*
 *
 * export a function that updates a single element from the store.
 *
