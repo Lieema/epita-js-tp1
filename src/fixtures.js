@@ -1,5 +1,3 @@
-// FIXME: add some meaningful data
-
 const pictures = [];
 
 const firstId = 155;
