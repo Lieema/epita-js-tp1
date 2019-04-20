@@ -1,6 +1,7 @@
 /* eslint-disable */
 import list from "./actions/list";
 import add from "./actions/add";
+import remove from "./actions/remove";
 
 
 const picturesGridElement = document.getElementById("pictures-grid");
@@ -54,7 +55,7 @@ const refreshGrid = () => {
 
   const fragment = document.createDocumentFragment();
 
-  items.forEach(i => {
+  items.forEach((i, index) => {
     const clone = document.importNode(pictureItemTemplate.content, true);
 
     const imgElement = clone.querySelector(".picture-item-image");
@@ -66,8 +67,11 @@ const refreshGrid = () => {
       ".picture-item-delete-button"
     );
 
-    // FIXME: use your functions to delete the selected element
-    deleteButtonElement.addEventListener("click", () => {});
+    // use your functions to delete the selected element
+    deleteButtonElement.addEventListener("click", () => {
+      remove(index);
+      refreshGrid();      
+    });
 
     fragment.appendChild(clone);
   });
