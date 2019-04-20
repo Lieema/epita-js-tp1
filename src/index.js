@@ -22,8 +22,8 @@ const addPictureHandler = () => {
 };
 
 const refreshGrid = () => {
-  // FIXME: use your functions to get all the elements
-  const items = [];
+  // use your functions to get all the elements
+  const items = list();
 
   const fragment = document.createDocumentFragment();
 
@@ -32,8 +32,8 @@ const refreshGrid = () => {
 
     const imgElement = clone.querySelector(".picture-item-image");
 
-    // FIXME: set the URL from your Picture model.
-    imgElement.src = "https://picsum.photos/458/354";
+    // set the URL from your Picture model.
+    imgElement.src = i;
 
     const deleteButtonElement = clone.querySelector(
       ".picture-item-delete-button"

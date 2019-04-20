@@ -1,3 +1,5 @@
+import { getState } from "../store";
+
 /* FIXME:
 *
 * export a function that returns all the current elements from the store.
@@ -7,6 +9,6 @@
 *
 */
 
-const list = () => {};
+const list = () => getState();
 
 export default list;
